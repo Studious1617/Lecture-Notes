@@ -114,5 +114,20 @@ public class Main {
         String[] languages = {"Java", "Python","C#"};
         int[] numbers = { 2, 4, 6, 8, 10, 12 };
 
+
+
+
+        /*Arrays and loops - reading data
+            • Notice the loop counter variable 'x' counts from 0, 1,
+            2, 3, 4, 5 - this is the same as the array element
+            numbers!
+            • So, we can use the variable x to refer to each array
+            element in turn; so we can use a loop to read from,
+            or write to, every array element in turn*/
+        //Create a string array initialzied with data
+        String[] classrooms2 = {"T3010", "T3020", "T3030", "T3040", "T3050", "T3080"};
+
+
+
     }
 }
