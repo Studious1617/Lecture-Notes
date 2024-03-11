@@ -12,9 +12,10 @@ public class Snow {
         //Specify in pointy brackets: < TypeOfKey, TypeOfValues>
         //In this example, all the keys must be Strings and all the values must be Doubles (or doubles)
 
-        // Create HashMap for String keys, and Double values
+        //Creates a HashMap for String keys, and Double values
         Map<String, Double> snowfall = new HashMap<>();
 
+        //Adds the keys and their values to the new snowfall HashMap
         snowfall.put("January", 3.1);   // Add key = January with value = 31.
         snowfall.put("February", 10.8);   // Add key = February with value = 10.8
         snowfall.put("December", 3.1);
@@ -36,17 +37,19 @@ public class Snow {
             System.out.println("There was snow in July!");
         }
         else {
-            System.out.println("There was no snow in July.");
+            System.out.println("There was no snow in July.");  //There is no July in the snowfall HashMap so this will print
         }
 
+        //Some user inputs
         String newMonth = stringInput("Enter name of month");
         double newSnow = positiveDoubleInput("Enter amount of snow for " + newMonth);
 
         Double snow = snowfall.get(newMonth);  // I put a Uppercase Double here so that we could check if snow variable was not equal to null since primitive types are not allowed to be null, only objects
 
         if (snow == null) {
-            snowfall.put(newMonth, newSnow);
+            snowfall.put(newMonth, newSnow);  //If the new month's amount of snow does not exist then this code will run, putting in the new month and the new snow
         }
+        //Overwrite protocol which asks the user if they wish to overwrite the previous data and does so if answered positively
         else {
             boolean overwrite = true;
 
@@ -56,69 +59,24 @@ public class Snow {
                 System.out.println("Snowfall for " + newMonth + " was " + snow + " inches.");
                 overwrite = yesNoInput("Do you want to overwrite the old data?");
                 if (overwrite) {
-                    snowfall.put(newMonth, newSnow);
+                    snowfall.put(newMonth, newSnow);  //Overwrites the old data
                 } else {
                     System.out.println("HashMap was not modified.");
                 }
             }
         }
 
-        System.out.println(snowfall);
+        System.out.println(snowfall);  //Prints out the snowfall arrayList
 
         // Calculate total snow by adding all the values
         double total = 0;
 
-        // Loop over all the values in the HashMap
+        // Loop over all the values in the HashMap and adds up the amounts for a total
         for (double snows: snowfall.values()) {
             total += snows;
         }
 
-        System.out.println("Total snowfall is " + total + " inches.");
-
-
-
-
-
-
-
-
-
-
-
-        /*double janSnowfall = snowfall.get("January");   // Get value for the key "January"
-
-        System.out.println("In January, " + janSnowfall + " inches of snow fell");
-
-        String newMonth = stringInput("Enter month: ");
-        double newSnow = positiveDoubleInput("Enter snow for " + newMonth);
-
-        boolean overwrite = true;
-
-        if (snowfall.containsKey(newMonth)) {
-            double snow = snowfall.get(newMonth);
-            System.out.println( newMonth + " is already in the HashMap");
-            System.out.println("Snowfall for " + newMonth + " was " + snow + " inches.");
-            overwrite = yesNoInput("Do you want to overwrite the old data?");
-        }
-
-        if (overwrite) {
-            snowfall.put(newMonth, newSnow);
-        } else {
-            System.out.println("HashMap was not modified.");
-        }
-
-
-        // Calculate total snow by adding all the values
-        double total = 0;
-
-        // Loop over all the values in the HashMap
-        for (Double snow: snowfall.values()) {
-            total += snow;
-        }
-
-        System.out.println("Total snowfall is " + total + " inches.");
-
-         */
+        System.out.println("Total snowfall is " + total + " inches.");  //Informs the user of the total snowfall amount
 
     }
 }
