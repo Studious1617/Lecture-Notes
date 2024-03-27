@@ -135,6 +135,83 @@ public class ITECCourse{
 
 
 
+        /*Object Oriented Benefits
+• Benefits of OO: simplifies working with data
+    – Think of about the difference between the OO and
+non-OO version
+    – The non-OO version is more complex and harder
+to modify*/
+
+        /*OO Benefits
+• Programs should always be designed with change in
+mind
+• Because you'll have to add new features, or the
+requirements will change, or you'll find a bug, or you'll
+want to use some of the code in another program...
+• If you use OO well, it makes it easier to write a modular
+program that is easier to re-use
+• Objects help break code into independent modules (or
+as independent as possible)
+• Makes it easier to change parts of the program without
+breaking other parts*/
+
+
+
+        /*Encapsulation
+• A well-designed object hides how it works
+internally
+• It only shares the data that is necessary
+• It should have a well-designed set of methods
+which other code can use to work with this
+object*/
+
+        /*Encapsulation
+Why?
+    1. This facilitates reuse – if there is a well-defined,
+documented interface, it is easier to use that object
+    2. You know what the publicly accessible parts of the
+objects are, so you know what it's OK to change and
+what will affect other parts of your code
+    3. Helps prevent accidentally modifying an object's data.
+Doesn't stop you doing it, just makes it a little harder*/
+
+        /*Public, Protected, Private
+• Often make all instance variables (aka fields)
+private
+• Make methods that will be used by other
+classes in the same package protected
+• Make methods that any other class can use
+public
+• final (constant) variables can be made public,
+protected or private, as appropriate
+• Make all other methods private*/
+
+        /*Access Modifiers: Public, Protected, Private
+• Public: any other class can access this method or
+variable
+• Protected: other classes in the same package can
+access this method or variable (also subclasses, later
+class)
+• Private: only this object can access this private variable.
+No other objects can access this method or variable
+• If you don't specify an access modifier, package-
+protected is assumed (like protected; available in same
+package, but subclasses in a different package can't
+access it)*/
+
+        /*Access Modifiers: Public, Protected, Private
+• Use the most restrictive access modifier you
+can
+• Protected: useful because often public enables
+too much access, but private is too restrictive
+• Package: a directory containing Java code
+• Another good reason to use packages – helps
+contain data/functionality to classes which
+need to use it = another way of implementing
+encapsulation*/
+
+
+
 
     }
 
