@@ -5,7 +5,8 @@ import java.io.*;
 public class Name {
     public static void main(String[] args) throws IOException {
 
-        String filename = "data.txt";
+        //Stored needed data in variables for modularity
+        String filename = "data.txt";  //Stored the filename
         String name = "Clara";
         String favoriteColor = "blue";
         int classCode = 2454;
@@ -17,17 +18,18 @@ public class Name {
         bufferedWriter.newLine();
         bufferedWriter.write(classCode + "\n");
 
-        bufferedWriter.close();
+        bufferedWriter.close();  //Closes file
 
+        //Read the file
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
         String line = bufferedReader.readLine();
 
-        while (line != null){
-            System.out.println(line);
-            line = bufferedReader.readLine();
+        while (line != null){  //If line is not empty then code below runs
+            System.out.println(line);  //Prints out the line
+            line = bufferedReader.readLine();  //Reads the next line
         }
 
-        bufferedReader.close();
+        bufferedReader.close();  //Closes file
 
     }
 }
