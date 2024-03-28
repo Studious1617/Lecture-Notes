@@ -32,6 +32,9 @@ public class ITECCourse {
     }
 
     public void setMaxStudents(int maxStudents) {
+        if (maxStudents < 0){
+            return;
+        }
         this.maxStudents = maxStudents;
     }
 

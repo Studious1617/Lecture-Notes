@@ -4,6 +4,9 @@ public class SwimmingPoolProgram {
     public static void main(String[] args) {
         Pool ymca = new Pool("YMCA", 50);
 
+        //ymca.name = "ymca";  //Not allowed
+        ymca.setName("Minneapolis YMCA");
+
         double totalSwam = ymca.distanceForLaps(6);
 
         System.out.println(ymca);

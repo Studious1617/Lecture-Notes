@@ -212,6 +212,19 @@ encapsulation*/
 
 
 
+        /*Collections.sort
+• Can only sort things that describe how they are
+sorted
+• In other words, what makes a thing of that
+type, greater than another thing of that type
+• So for Strings, it's before/after in the alphabet
+• For Tire objects, how to compare? Java doesn't
+know what makes a Tire before or after another
+Tire in a sorted list
+• We need to help Java*/
+
+
+
 
     }
 
