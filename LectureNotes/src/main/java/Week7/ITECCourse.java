@@ -11,6 +11,8 @@ public class ITECCourse {
     private List<String> students;
     private int maxStudents;
 
+
+    //Getters and Setters
     public String getName() {
         return name;
     }
@@ -33,33 +35,41 @@ public class ITECCourse {
 
     public void setMaxStudents(int maxStudents) {
         if (maxStudents < 0){
-            return;
+            return;  //Returns nothing if the inputted new maxStudents is less than 0
         }
-        this.maxStudents = maxStudents;
+        this.maxStudents = maxStudents;  //Changes the value in the maxStudent field
     }
 
 
-    public ITECCourse(String courseName, int courseCode, int courseMaxStudents){
+    //Constructor for this class
+    public ITECCourse(String courseName, int courseCode, int courseMaxStudents){  //Input descriptions for calls
+        //Immediate input required
         name = courseName;
         code = courseCode;
         maxStudents = courseMaxStudents;
+
+        //Input can be added later with addStudent
         students = new ArrayList<>();
     }
 
     public void addStudent(String studentName){
 
         if (students.size() == maxStudents){
-            System.out.println("Course is full. Cannot add " + studentName);
+            System.out.println("Course is full. Cannot add " + studentName);  //If the size of the
+            // students arrayList is equal to the value in maxStudents then this message will print
+            // and the student won't be added
         }
         else {
-            students.add(studentName);
+            students.add(studentName);  //If there is space the student will be added
         }
     }
 
     public void writeCourseInfo(){
+        //Gives a description of the course
         System.out.println("Course Name: " + name);
         System.out.println("Course Code: " + code);
         System.out.println("Students enrolled: ");
+        //A loop for printing student names
         for (String student: students){
             System.out.println(student);
         }
@@ -67,17 +77,19 @@ public class ITECCourse {
         System.out.println("The max number of students that can enroll in this course is " + maxStudents);
     }
 
+    //A getter for the students array, giving access to the size of it
     public int getNumberOfStudents(){
         return students.size();
     }
 
     public void removeStudent(String studentName){
         if (students.contains(studentName)){
-            students.remove(studentName);
-            System.out.println(studentName + " was unenrolled from " + name);
+            students.remove(studentName);  //If the student is in the arrayList then remove them
+            System.out.println(studentName + " was unenrolled from " + name);  //Tells the user the student was removed
         }
         else {
-            System.out.println(studentName + " was not found in " + name + " student list.");
+            System.out.println(studentName + " was not found in " + name + " student list.");  //If the student's name
+            // wasn't found then inform the user
         }
     }
 
