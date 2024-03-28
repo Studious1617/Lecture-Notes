@@ -6,13 +6,20 @@ import java.util.List;
 import static input.InputUtils.*;
 
 public class Game {
-    private DiceCup diceCup;
-    private List<Player> players;
+
+    //Fields
+    private DiceCup diceCup;  //Declares a private DiceCup object named diceCup
+    private List<Player> players;  //Declares a private DiceCup object named diceCup
+
+    //Main method
     public static void main(String[] args) {
-        Game knockout = new Game();
-        knockout.startGame();
+        Game knockout = new Game();  //Makes a new Game object called knockout
+        knockout.startGame();  //Starts the game. Calls the startGame() method for knockout
     }
 
+
+
+    //Method that starts the game
     public void startGame(){
         //Make player objects - need names
         //Get knockout numbers
@@ -21,83 +28,105 @@ public class Game {
         //Each player will roll dice - use dice cup
         //Print winner
 
-        diceCup = new DiceCup(2);
+        diceCup = new DiceCup(2);  //Stores a new DiceCup object with 2 dice into the diceCup field
+        //Asks user(s) for number of players and stores answer into numberOfPlayers variable
         int numberOfPlayers = positiveIntInput("How many players?");
+        //Calls the createPlayers method and inputs numberOfPlayers as the arguement
         createPlayers(numberOfPlayers);
 
-        setKnockoutNumbers();
+        setKnockoutNumbers();  //Calls the setKnockoutNumbers which sets up the knockout numbers
         
-        play();
+        play();  //Calls the play() method which sets the game into motion
         
-        printGameResults();
+        printGameResults();  //Prints the results of the game in a readable format
     }
 
+
+
+    //Method that creates the players
     private void createPlayers(int numberOfPlayers) {
-        players = new ArrayList<>();
+        players = new ArrayList<>();  //Initializes the players field with a new ArrayList
 
         for (int x = 0; x < numberOfPlayers; x++){
-            String name = stringInput("Enter player " + x + "'s name");
-            Player player = new Player(name);
-            players.add(player);
+            String name = stringInput("Enter player " + x + "'s name");  //Temporarily stores the name of each player
+            Player player = new Player(name);  //Makes a new Player object named player and inputs the value of the name variable for each new player
+            players.add(player);  //Adds the new Player object to the player arrayList for each player
         }
     }
 
+
+
+    //Method for setting the knockout numbers for each player
     private void setKnockoutNumbers() {
 
+        //Loops through each player in the players arrayList
         for (Player p: players) {
 
-            int knockoutNumber;
+            int knockoutNumber;  //Declares the knockoutNumber variable
 
+            //Loop that ensures that the user inputs a knockout number that is 6, 7, 8, or 9
             do {
                 knockoutNumber = intInput("Player " + p.getName() + ", enter your knock out number." +
-                        " It must be 6, 7, 8, or 9.");
-            } while (knockoutNumber < 6 || knockoutNumber > 9);  //Number must be 6, 7, 8, or 9
+                        " It must be 6, 7, 8, or 9.");  //Asks each player for their knockout number
+            } while (knockoutNumber < 6 || knockoutNumber > 9);  //Number must be 6, 7, 8, or 9 to break out of loop
 
-            p.setKnockoutNumber(knockoutNumber);
+            p.setKnockoutNumber(knockoutNumber);  //Sets the knockout number for each player with the interior Player instance
         }
     }
 
+    //Method that plays the game
     private void play() {
 
-        int playerIndex = 0;
-        int totalPlayers = players.size();
+        int playerIndex = 0;  //Initializes the playerIndex variable
+        int totalPlayers = players.size();  //Initializes the totalPlayers variable as the number of players in the players arrayList
 
+        //Loop continues while there is more than one player in the game
         while (moreThanOnePlayerInPlay()){
-            Player currentPlayer = players.get(playerIndex);
+            Player currentPlayer = players.get(playerIndex);  //Stores the playerIndex of the current player in the currentPlayer Player object
 
             if (currentPlayer.isKnockedOut()){
-                System.out.println("Sorry, " + currentPlayer.getName() + " you are out!");
+                System.out.println("Sorry, " + currentPlayer.getName() + " you are out!");  //If the current player is knocked then print out this message
             } else {
-                String ignore = stringInput("Player " + currentPlayer.getName() + ", press enter to roll.");
+                //If the current player isn't knocked out then run the code below
+                String ignore = stringInput("Player " + currentPlayer.getName() + ", press enter to roll.");  //Tells the user how to continue
+                //Stores the result of the currentPlayer calling the playTurn method with the diceCup field in a variable called turnResult
                 String turnResult = currentPlayer.playTurn(diceCup);
+                //Prints out the turn result
                 System.out.println(turnResult);
             }
-            playerIndex = (playerIndex + 1) % totalPlayers;
+            playerIndex = (playerIndex + 1) % totalPlayers;  //Makes sure that everyone gets a turn each round
         }
     }
 
+
+
+    //Method that checks to see if there is more than one player in the game
     private boolean moreThanOnePlayerInPlay() {
 
-        int totalPlay = 0;
+        int totalPlay = 0;  //Initiazlizes totalPlay
+
+        //Loops through each player in the players arrayList
         for (Player p: players){
             if (!p.isKnockedOut()){
-                totalPlay++;
+                totalPlay++;  //If the current player is not knocked out then increment totalPlay
             }
         }
-        System.out.println("There are " + totalPlay + " player(s) in the game.");
+        System.out.println("There are " + totalPlay + " player(s) in the game.");  //Tells the user how many players are in the game
         if (totalPlay > 1){
-            return true;
+            return true;  //Returns true if there is more than one player in the game
         } else {
-            return false;
+            return false;  //Returns false if there is less than one player in the game
         }
     }
 
+    //Method for formatting and printing the game results
     private void printGameResults() {
+        //Loops through each player in the players arrayList
         for (Player player: players){
-            if (player.isKnockedOut()){
-                System.out.println("\n\nPlayer " + player.getName() + " was knocked out.");
+            if (player.isKnockedOut()){  //Checks to see if the current player is knocked out
+                System.out.println("\n\nPlayer " + player.getName() + " was knocked out.");  //If so then this prints
             } else {
-                System.out.println("\n\nPlayer " + player.getName() + " IS THE WINNER!!!");
+                System.out.println("\n\nPlayer " + player.getName() + " IS THE WINNER!!!");  //If not then this prints
             }
         }
     }
