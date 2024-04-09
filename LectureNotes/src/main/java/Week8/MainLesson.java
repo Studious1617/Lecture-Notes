@@ -45,5 +45,11 @@ documentation and resources than JavaFX
 • IntelliJ is built in Swing!*/
 
 
+
+        /*More components and events
+• JCheckBox and JSlider
+• Slider changed event listener
+• Checkbox checked/unchecked listener
+• Detecting text typed into JTextField*/
     }
 }

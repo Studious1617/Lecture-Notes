@@ -1,4 +1,4 @@
-package Week8;
+package Week8.hello_gui_app;
 
 import Week8.hello_gui_app.HelloGUI;
 
