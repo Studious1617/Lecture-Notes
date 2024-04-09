@@ -51,5 +51,22 @@ documentation and resources than JavaFX
 • Slider changed event listener
 • Checkbox checked/unchecked listener
 • Detecting text typed into JTextField*/
+
+
+
+        /*GUI design...
+• Not as sophisticated as Visual Studio or Xcode
+• Java tries to be as generic as possible - the same code can run on
+Windows, Mac, Unix, Linux.... All deal with GUIs very differently
+    – Visual Studio is solving one problem for one platform
+• Try not to stress too much if you don't like the look of your GUI
+• Don't spend too much time on making your GUI perfect
+• Focus on building a logically laid out GUI; and correct code
+• You can always change what an application looks like, without
+breaking any of the logic underneath
+• The positions and colors and style of the components is
+independent of your application's logic
+• Real world: common to use 3rd-party GUI toolkits, look-and feel
+and themes to make your app look good*/
     }
 }
