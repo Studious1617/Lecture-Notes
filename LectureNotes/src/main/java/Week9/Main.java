@@ -3,9 +3,6 @@ package Week9;
 public class Main {
     public static void main(String[] args) {
 
-
-        //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   <-- new github token
-
         /*Databases 101
 • A database is a separate application to your program
 • A database server application organizes, stores and
