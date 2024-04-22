@@ -8,7 +8,7 @@ public class Main {
 • A database server application organizes, stores and
 provides access to the data
 • Your Java program connects to the database to
-access the data*/
+access the data needed*/
 
         /*Databases 101
 • Databases live in a database server
