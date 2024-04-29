@@ -4,6 +4,7 @@ module com.week_0.week_0 {
     requires input.utils;
     requires java.desktop;
     requires java.sql;
+    requires unirest.java;
 
 
     opens com.week_0.week_0 to javafx.fxml;
