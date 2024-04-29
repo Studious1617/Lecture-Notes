@@ -124,7 +124,7 @@ public class Database {
     public void updateMovie(Movie movie){
 
         //String templates with variable stars, watched status, and id
-        String sql = "UPDATE movies SET stars = ?, watched = ?, WHERE id = ?";
+        String sql = "UPDATE movies SET stars = ?, watched = ? WHERE id = ?";
         //"UPDATE movies SET stars = 4, watched = true WHERE name = 'Up'; ";
 
         //Exception handling for database
