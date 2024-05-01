@@ -111,6 +111,46 @@ https://unsplash.com/developers*/
 
 
 
+        /*Another API - Exchange rates
+• A list of currency codes may be useful:
+https://www.iban.com/currency-codes
+• Documentation at https://exchange-rates-1150.herokuapp.com*/
+
+        /*Query Parameters
+https://exchange-rates-1150.herokuapp.com/latest?base=USD&symbols=EUR
+• Everything after the ? in a URL are query parameters
+• base=USD&symbols=EUR
+• Used to customize the request - which base currency, what
+currencies to get the conversions to?
+• Notice key=value&key2=value2 structure
+• Where else have we seen this?*/
+
+
+
+        /*API Keys
+• These APIs are unusual because you don't have to authenticate to use the service
+• Most APIs are restricted to authorized users
+    • Why?
+• Either with OAuth
+    - equivalent of a username and password
+• Or require a key to access
+    - less security but still useful for managing and monitoring users*/
+
+        /*Key Management
+• It's not a good idea to write your key in code
+• It's like a password
+• One solution: save the key in an environment variable*/
+
+        /*Environment Variables
+• A variable that your computer stores
+• Programs can read environment variables
+• Common solution to private data needed by programs, that should
+not be part of the codebase
+• Also used to store database access credentials, other secrets
+• And for high-level development settings
+• Run the program in development or production mode?
+• What port should the web server run on?*/
+
 
 
 
