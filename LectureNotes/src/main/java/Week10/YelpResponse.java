@@ -9,13 +9,15 @@ public class YelpResponse {
 }
 
 class Business {
-    //represents one business object
+    //represents the name, rating, and location
+    // of one business object
     public String name;
     public double rating;
     public Location location;
 }
 
 class Location {
+    //Represents the city name and address of one location object
     public String city;
     public String address;
 }

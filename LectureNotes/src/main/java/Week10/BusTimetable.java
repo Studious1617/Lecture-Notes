@@ -58,21 +58,26 @@ public class BusTimetable {
     * */
 
     public static void main(String[] args) {
+        //Tells the program the site the information is located in
         // This URL is a request for the bus departures from stop number 17940, which
         // is the stop on Hennepin Avenue for buses traveling north.
         String metroTransitURL = "http://svc.metrotransit.org/NexTrip/17940?format=json";
 
+        //The process for getting a response from the api
         MetroTransitResponse response = Unirest.get(metroTransitURL).asObject(MetroTransitResponse.class).getBody();
 
+        //Stores the departure data in an array
         BusStatus[] busStatuses = response.departures;
 
+        //Formats the information
         String busTableTemplate = "%-10s%-40s%-20s\n";
 
         // Table header
         System.out.printf(busTableTemplate, "Route", "Description", "Arrival Time");
         System.out.println("=".repeat(70));
 
-        // Read information about each bus, display in table form
+        //Reads information about each bus
+        //Displays the data in table form
 
         for (BusStatus bus: busStatuses) {
             System.out.printf(busTableTemplate, bus.route_id, bus.description, bus.departure_text);
@@ -81,9 +86,11 @@ public class BusTimetable {
 }
 
 class MetroTransitResponse {
+    //Field for MetroTransitResponse
     BusStatus[] departures;
 }
 class BusStatus {
+    //Fields for BusStatus
     public String departure_text;
     public String description;
     public String route_id;
